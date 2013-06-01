@@ -1,0 +1,4 @@
+just-static
+===========
+
+just static...
