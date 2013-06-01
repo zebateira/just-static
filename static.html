@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7"> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8"> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js"> <!--<![endif]-->
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
+        <style type="text/css">
+        	* {
+        		margin: 0px;
+        		padding: 0px;
+        		line-height: 0px;
+        	}
+
+            body {
+                background-color: black;
+            }
+
+            #container {
+                height: 480px;
+                width: 720px;
+                margin: auto;
+                padding: auto;
+                margin-top: 100px;
+            }
+
+			.pixel {
+				display: inline-block;
+			    min-width: 10px;
+			    min-height: 10px;
+                background-color: white;
+			}
+        </style>
+
+    </head>
+    <body>
+
+        <div id="container">
+
+        </div> <!-- /container -->
+
+        <script type="text/javascript">
+        	window.onload = function() {
+
+                var nPixels = 480 * 720 / 100 // window.outerHeight * window.outerWidth / 25
+
+        		for(var i = 0; i < nPixels ; ++i) {
+                    var pixel = document.createElement('div')
+                    pixel.classList.add('pixel')
+                    document.getElementById('container')
+                        .appendChild(pixel)
+        		}
+
+                var pixels = document.getElementsByClassName('pixel')
+
+				function yeah() {
+                    var i = 0;
+                    for(i = 0; i < pixels.length; ++i) {
+                        pixels[i].style.opacity = Math.random()
+                    }
+                    document.body.style.opacity = Math.random() + 0.7
+                    setTimeout(yeah, 10)
+				}
+				yeah()
+
+        	}
+        </script>
+    </body>
+</html>
