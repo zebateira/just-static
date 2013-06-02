@@ -10,11 +10,11 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width">
         <style type="text/css">
-        	* {
-        		margin: 0px;
-        		padding: 0px;
-        		line-height: 0px;
-        	}
+            * {
+                margin: 0px;
+                padding: 0px;
+                line-height: 0px;
+            }
 
             body {
                 background-color: black;
@@ -28,46 +28,50 @@
                 margin-top: 100px;
             }
 
-			.pixel {
-				display: inline-block;
-			    min-width: 10px;
-			    min-height: 10px;
+            .pixel {
+                display: inline-block;
+                min-width: 10px;
+                min-height: 10px;
                 background-color: white;
-			}
+            }
         </style>
 
     </head>
     <body>
 
-        <div id="container">
+        <audio controls style="display: none;" preload loop autoplay="true" onended="this.play()">
+          <source src="static.mp3" type="audio/mpeg">
+          <source src="static.ogg" type="audio/ogg">
+        </audio>
 
+        <div id="container">
         </div> <!-- /container -->
 
         <script type="text/javascript">
-        	window.onload = function() {
+            window.onload = function() {
 
                 var nPixels = 480 * 720 / 100 // window.outerHeight * window.outerWidth / 25
 
-        		for(var i = 0; i < nPixels ; ++i) {
+                for(var i = 0; i < nPixels ; ++i) {
                     var pixel = document.createElement('div')
                     pixel.classList.add('pixel')
                     document.getElementById('container')
                         .appendChild(pixel)
-        		}
+                }
 
                 var pixels = document.getElementsByClassName('pixel')
 
-				function yeah() {
+                function yeah() {
                     var i = 0;
                     for(i = 0; i < pixels.length; ++i) {
                         pixels[i].style.opacity = Math.random()
                     }
-                    document.body.style.opacity = Math.random() + 0.7
+                    document.body.style.opacity = Math.random() + 0.5
                     setTimeout(yeah, 10)
-				}
-				yeah()
+                }
+                yeah()
 
-        	}
+            }
         </script>
     </body>
 </html>
